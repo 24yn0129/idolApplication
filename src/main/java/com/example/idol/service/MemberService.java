@@ -40,6 +40,7 @@ public class MemberService {
 	    entity.setMemberName(update.getMemberName());
 	    entity.setMemberHiraganaName(update.getMemberHiraganaName());
 	    entity.setMemberBirthday(update.getMemberBirthday());
+	    entity.setArtistId(update.getArtistId());
 	    
 	    //update
 	    return memberRepository.save(entity);

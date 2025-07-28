@@ -1,5 +1,7 @@
 package com.example.idol.controller;
 
+import java.io.IOException;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -10,6 +12,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 
 import com.example.idol.entity.Artist;
 import com.example.idol.service.ArtistService;
@@ -44,11 +48,12 @@ public class ArtistController {
 	}
 
 	@PostMapping("/artists")
-	public String registerArtist(@ModelAttribute @Validated Artist artists, BindingResult result, Model model) {
+	public String registerArtist(@ModelAttribute @Validated Artist artists, BindingResult result, Model model,
+			@RequestParam("artist_cover")MultipartFile cover) throws IOException {
 		if (result.hasErrors()) {
 			return "registration";
 		}
-		artistService.save(artists);
+		artistService.save(artists, cover);
 		return "redirect:/artists";
 	}
 
@@ -78,5 +83,7 @@ public class ArtistController {
 
 		return "redirect:/artists";
 	}
+	
+	
 
 }

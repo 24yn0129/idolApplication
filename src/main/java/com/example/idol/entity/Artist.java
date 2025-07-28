@@ -30,6 +30,7 @@ public class Artist {
 	private String artistName;
 	@NotEmpty
 	private String artistHiraganaName;
+	//エンティティの値の書き換え
 	@NotEmpty
 	private String artistArtUrl;
 	

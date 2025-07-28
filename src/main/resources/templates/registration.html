@@ -11,7 +11,7 @@
 </head>
 
 	<h1>アーティスト新規登録</h1>
-	<form th:method="post" th:action="@{/artists}" th:object="${artist}">
+	<form th:method="post" th:action="@{/artists}" th:object="${artist}" enctype="multipart/form-data">
 	アーティスト名<br>
 	<input type="text" name="artistName"><br/>
 	<div class="fw-bold" th:if="${#fields.hasErrors('artistName')}" 
@@ -25,6 +25,9 @@
 	<div class="fw-bold" th:if="${#fields.hasErrors('artistArtUrl')}" 
 	th:errors="*{artistArtUrl}" th:errorclass="err" style="color:red"></div>
 	<input type = "hidden" name="id" value="${artist.artistId}"><br/>
+	
+	<label class="col-form-label-sm fs-4">アーティスト写真</label>
+	<input type="file" class="form-control" name="artist_cover"/>
 		
 	<input type="submit" class = "btn btn-secondary" value="登録" /><br/>
 	</form>

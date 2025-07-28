@@ -18,21 +18,21 @@
 
 		<div>
 			アーティスト名<br>
-			<input type="text" name="artistName" /><br />
+			<input type="text" class="form-control" name="artistName" th:field="*{artistName}"><br/>
 			<div class="fw-bold" th:if="${#fields.hasErrors('artistName')}" th:errors="*{artistName}"
 				th:errorclass="err" style="color:red"></div>
 		</div>
 
 		<div>
 			アーティスト名(読み)<br>
-			<input type="text" name="artistHiraganaName" /><br />
+			<input type="text" class="form-control" name="artistHiraganaName" th:field="*{artistHiraganaName}"><br/>
 			<div class="fw-bold" th:if="${#fields.hasErrors('artistHiraganaName')}" th:errors="*{artistHiraganaName}"
 				th:errorclass="err" style="color:red"></div>
 		</div>
 
 		<div>
 			公式HP<br>
-			<input type="text" name="artistArtUrl" /><br />
+			<input type="text" class = "form-control" name="artistArtUrl"  th:field="*{artistArtUrl}"/><br />
 			<div class="fw-bold" th:if="${#fields.hasErrors('artistArtUrl')}" th:errors="*{artistArtUrl}"
 				th:errorclass="err" style="color:red"></div>
 		</div>
